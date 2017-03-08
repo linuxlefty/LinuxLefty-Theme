@@ -14,18 +14,22 @@
     "update:lazysizes": "yarn upgrade lazysizes && cp -i node_modules/lazysizes/lazysizes.min.js static/js",
     "update:smoothscroll": "yarn upgrade smoothscroll && cp -i node_modules/smoothscroll-polyfill/dist/smoothscroll.js static/js",
     "update:hackcss": "yarn upgrade hackcss && cat node_modules/hack/dist/hack.css > static/css/critical-vendor.css && cat node_modules/hack/dist/dark.css >> static/css/critical-vendor.css",
+    "update:photoswipe": "yarn upgrade hackcss && cp -i node_modules/photoswipe/dist/photoswipe.css static/css/vendor/photoswipe/ && cp -ir node_modules/photoswipe/dist/default-skin static/css/vendor/photoswipe/ && cp -i node_modules/photoswipe/dist/photoswipe.min.js static/js/vendor/photoswipe/ && cp -i node_modules/photoswipe/dist/photoswipe-ui-default.min.js static/js/vendor/photoswipe/",
     "test": "while true; do head -n 100 /dev/urandom; sleep 0.1; done | hexdump -C | grep 'ca fe'",
+    "install:photoswipe": "mkdir -p static/css/vendor/photoswipe/default-skin static/js/vendor/photoswipe",
     "release": "standard-version"
   },
   "dependencies": {
     "atom-one-pgyments": "^1.0.0",
     "hack": "^0.8.0",
     "lazysizes": "^4.0.0-rc3",
+    "photoswipe": "^4.1.1",
     "smoothscroll-polyfill": "^0.3.4"
   },
   "devDependencies": {
     "standard-version": "^4.0.0",
-    "yarn": "^1.0.0"
+    "yarn": "^1.0.0",
+    "rimraf": "^2.5.4"
   },
   "license": "WTFPL"
 }

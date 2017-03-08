@@ -1,0 +1,35 @@
+<style media="screen,projection">
+  [itemtype="http://schema.org/ImageGallery"] {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px !important;
+    width: 1px !important;
+    border: 0 !important;
+    overflow: hidden;
+  }
+</style>
+<div itemscope itemtype="http://schema.org/ImageGallery">
+  {{ range .Params.gallery.main }}
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a data-size="{{.w}}x{{.h}}" href="{{ .src }}" itemprop="contentUrl">
+        <img width="150" src="{{ .src }}" itemprop="thumbnail" {{ with .caption }}alt="{{ . }}"{{ end }}>
+      </a>
+      {{ if and .w .h }}
+        <meta itemprop="width" content="{{ .w }}">
+        <meta itemprop="height" content="{{ .h }}">
+      {{ end }}
+      {{ if .title }}
+        <figcaption class="visually-hidden" itemprop="caption description">
+          {{ .title }}
+          {{ with .author }}
+            <span itemprop="copyrightHolder">Photo: {{ . }}</span>
+          {{ end }}
+        </figcaption>
+      {{ end }}
+    </figure>
+  {{ end }}
+</div>

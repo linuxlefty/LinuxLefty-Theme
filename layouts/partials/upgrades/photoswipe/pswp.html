@@ -1,0 +1,58 @@
+{{ if .Params.gallery.main }}
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+      <div class="pswp__ui pswp__ui--hidden">
+        <div class="pswp__top-bar">
+          <div class="pswp__counter"></div>
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        </button>
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        </button>
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{ partial "upgrades/photoswipe/photoswipe-init.js" . }}
+  <script>
+    const fetchInject=function(){"use strict";const e=function(e,t,n,o,c,r,i){r=t.createElement(n),i=t.getElementsByTagName(n)[0],r.appendChild(t.createTextNode(o)),r.onload=c,i.parentNode.insertBefore(r,i)},t=function(e,t,n,o,c,r,i){r=t.createElement(n),i=t.getElementsByTagName(n)[0],r.type="text/css",r.appendChild(t.createTextNode(o)),i.parentNode.insertBefore(r,i)};return function(n){const o=[],c=[],r=[];return n.forEach(e=>c.push(window.fetch(e).then(e=>{return[e.clone().text(),e.blob()]}).then(e=>{return Promise.all(e).then(e=>{o.push({text:e[0],type:e[1].type})})}))),Promise.all(c).then(()=>{return o.forEach(n=>{r.push({then:o=>{"application/javascript"===n.type?e(window,document,"script",n.text,o()):"text/css"===n.type&&(t(window,document,"style",n.text),o())}})}),Promise.all(r)})}}();
+
+    fetchInject([
+      '{{ .Site.BaseURL }}css/vendor/photoswipe/photoswipe.css',
+      '{{ .Site.BaseURL }}css/vendor/photoswipe/default-skin/default-skin.css',
+      '{{ .Site.BaseURL }}js/vendor/photoswipe/photoswipe.min.js',
+      '{{ .Site.BaseURL }}js/vendor/photoswipe/photoswipe-ui-default.min.js'
+    ]).then(() => {
+      // const el = document.querySelectorAll('.pswp')[0]
+      // const items = JSON.parse({{ .Params.gallery.main | jsonify }})
+      // const gallery = new PhotoSwipe(el, PhotoSwipeUI_Default, items)
+      // gallery.init()
+      //
+      // initPhotoSwipeFromDOM made available in photoswipe-init.js
+      initPhotoSwipeFromDOM('[itemtype="http://schema.org/ImageGallery"]')
+    })
+  </script>
+{{ end }}
