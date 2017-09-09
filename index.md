@@ -36,11 +36,19 @@
       </tr>
       <tr>
         <td>Performance Optimized</td>
-        <td>Page content, favicon and styles <b>load in a single request</b> on all pages. External resources, if present, are loaded asynchronously and only when necessary. This keeps pages zippy and affords <b>~1 second page loads over 2G</b> when hosted using a <abbr title="Content Delivery Network">CDN</abbr>.</td>
+        <td>Page content, favicon and styles <b>load in a single request</b> on all pages. With exception to the BPG image polyfill, all external resources used by the theme are loaded asynchronously and only when necessary. This keeps pages zippy and affords <b>~1 second page loads over 2G</b> when hosted using a <abbr title="Content Delivery Network">CDN</abbr>.</td>
       </tr>
       <tr>
         <td>Vertical Scaling</td>
         <td>After Dark is capable of generating <b>~1000 pages per second</b> thanks to <a target="feature" href="https://gohugo.io/">Hugo</a> and is likely to become faster over time.</td>
+      </tr>
+      <tr>
+        <td><a href="#intelligent-lazy-loading">Intelligent Lazy Loading</a></td>
+        <td>Lazily load your images, iFrames and script embeds. After Dark uses the <a title="feature" href="https://github.com/aFarkas/lazysizes">lazysizes</a> library, a zero-configuration JavaScript library with support for <abbr title="Low Quality Image Placeholders">LQIP</abbr> and responsive images.</td>
+      </tr>
+      <tr>
+        <td><a href="#bpg-image-support">BPG Image Support</a></td>
+        <td>After Dark supports the <a href="https://bellard.org/bpg/">BPG Image format</a>. Native browser support for BPG is dismal. As a result, a polyfill has been provided to render BPG images.</td>
       </tr>
       <tr>
         <td><a href="#open-graph">Open Graph</a></td>
@@ -57,10 +65,6 @@
       <tr>
         <td><a href="#section-menu">Section Menu</a></td>
         <td>Add and customize your site's global navigation. After Dark uses Hugo's <a target="feature" href="https://gohugo.io/extras/menus#section-menu-for-the-lazy-blogger">Section Menu for "the Lazy Blogger"</a>, making navigation easy to create and predictable to use. Don't want navigation? Simply disable it from your site configuration.</td>
-      </tr>
-      <tr>
-        <td><a href="#intelligent-lazy-loading">Intelligent Lazy Loading</a></td>
-        <td>Lazy load your images, iFrames and script embeds. After Dark uses the <a title="feature" href="https://github.com/aFarkas/lazysizes">lazysizes</a> library, a zero-configuration JavaScript library with support for <abbr title="Low Quality Image Placeholders">LQIP</abbr> and responsive images.</td>
       </tr>
       <tr>
         <td><a href="#shortcodes">Content Reuse</a></td>
@@ -200,6 +204,25 @@ To activate lazy loading with [lazysizes], add `lazyload` to the `class` attribu
 To help get you started, After Dark includes a _Shortcode_ taking advantage of this feature, enabling you to easily create [lazy-loaded `figure` elements](#shortcodes) within your markdown content.
 
 Additional information and examples, including how to set-up and use LQIP (Low-Quality Image Placeholders), are available on the [lazysizes] repository on GitHub.
+
+### BPG Image Support
+
+The BPG image format provides [high-fidelity images](http://xooyoozoo.github.io/yolo-octo-bugfixes/#vintage-car&jpg=s&bpg=s) which look more like PNGs but loads as fast as a JPG. From a compression standpoint, BPG really shines when handling animations. With support for alpha transparency and given its compression, BPG [literally steamrolls](https://bellard.org/bpg/animation.html) the GIF format of yesteryear.
+
+**Why haven't I heard of BPG?** Now you have. Please [encourage browser makers](http://caniuse.com/#search=bpg) to push this important image format forward.
+
+After Dark will asynchronously download a BPG polyfill and render the image in a `canvas` element.
+
+Use BPG just like any other image with the `img` element with a `.bpg` image file extension on any [encoded image](https://webencoder.libbpg.org/). 
+
+BPG image support is enabled by default. To disable support for BPG images add the following to your site configuration:
+
+```toml
+[params.seo]
+  disable_bpg = true # Disable BPG image support
+```
+
+Not sold on BPG? Generate a new post with the default `post` archetype or just take a look at the [BPG Image Comparison](http://xooyoozoo.github.io/yolo-octo-bugfixes/#vintage-car&jpg=s&bpg=s). If that doesn't do it, nothing will.
 
 ### Related Content
 
