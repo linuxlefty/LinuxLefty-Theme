@@ -36,23 +36,23 @@
     </div>
   </div>
 
-  {{ partial "upgrades/photoswipe/photoswipe-init.js" . }}
+  {{ partial "addons/gallery/initialize.js" . }}
   <script>
     /*! Fetch Inject v1.7.0 | (c) 2017 Josh Habdas | @license ISC */
     var fetchInject=function(){"use strict";const e=function(e,t,n,r,o,i,c){i=t.createElement(n),c=t.getElementsByTagName(n)[0],i.appendChild(t.createTextNode(r.text)),i.onload=o(r),c?c.parentNode.insertBefore(i,c):t.head.appendChild(i)};return function(t,n){if(!t||!Array.isArray(t))return Promise.reject(new Error("`inputs` must be an array"));if(n&&!(n instanceof Promise))return Promise.reject(new Error("`promise` must be a promise"));const r=[],o=n?[].concat(n):[],i=[];return t.forEach(e=>o.push(window.fetch(e).then(e=>[e.clone().text(),e.blob()]).then(e=>Promise.all(e).then(e=>{r.push({text:e[0],blob:e[1]})})))),Promise.all(o).then(()=>{r.forEach(t=>{i.push({then:n=>{t.blob.type.includes("text/css")?e(window,document,"style",t,n):e(window,document,"script",t,n)}})});return Promise.all(i)})}}();
     fetchInject([
-      '{{ .Site.BaseURL }}css/vendor/photoswipe/photoswipe.css',
-      '{{ .Site.BaseURL }}css/vendor/photoswipe/default-skin/default-skin.css',
-      '{{ .Site.BaseURL }}js/vendor/photoswipe/photoswipe.min.js',
-      '{{ .Site.BaseURL }}js/vendor/photoswipe/photoswipe-ui-default.min.js'
+      '{{ .Site.BaseURL }}addons/gallery/photoswipe.css',
+      '{{ .Site.BaseURL }}addons/gallery/default-skin/default-skin.css',
+      '{{ .Site.BaseURL }}addons/gallery/photoswipe.min.js',
+      '{{ .Site.BaseURL }}addons/gallery/photoswipe-ui-default.min.js'
     ]).then(() => {
       // const el = document.querySelectorAll('.pswp')[0]
       // const items = JSON.parse({{ .Params.gallery.main | jsonify }})
       // const gallery = new PhotoSwipe(el, PhotoSwipeUI_Default, items)
       // gallery.init()
       //
-      // initPhotoSwipeFromDOM made available in photoswipe-init.js
       initPhotoSwipeFromDOM('[itemtype="http://schema.org/ImageGallery"]')
     })
   </script>
+  <script async src="{{ .Site.BaseURL }}addons/gallery/masonry.pkgd.min.js"></script>
 {{ end }}

@@ -2,6 +2,11 @@
   [itemtype="http://schema.org/ImageGallery"] {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto 20px auto;
+  }
+  [itemprop="associatedMedia"] {
+    /*width: 20%;*/
+    /*margin-bottom: 10px;*/
   }
   .visually-hidden {
     position: absolute !important;
@@ -11,8 +16,28 @@
     border: 0 !important;
     overflow: hidden;
   }
+  [itemtype="http://schema.org/ImageGallery"] figure {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+  }
+  [itemtype="http://schema.org/ImageGallery"] figure a {
+    border-bottom: none;
+  }
+  [itemtype="http://schema.org/ImageGallery"] a[href*="://"]::after {
+    /* override theme data uri svg icon */
+    content: "";
+  }
+  .pswp__share-tooltip a[href*="://"]::after {
+    /* override theme data uri svg icon */
+    content: "";
+  }
+  [itemtype="http://schema.org/ImageGallery"] figure a:hover {
+    background-color: inherit;
+  }
 </style>
-<div itemscope itemtype="http://schema.org/ImageGallery">
+<div itemscope itemtype="http://schema.org/ImageGallery" data-masonry='{ "itemSelector": "[itemprop=\"associatedMedia\"]", "columnWidth": 150, "gutter": 5, "fitWidth": true }'>
   {{ range .Params.gallery.main }}
     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
       <a data-size="{{.w}}x{{.h}}" href="{{ .src }}" itemprop="contentUrl">
