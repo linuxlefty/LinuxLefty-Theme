@@ -1,7 +1,7 @@
 <!--{{/*
 Usage: {{< outbound "**BODY**" "URL" "OPTIONAL TITLE" >}}
 */}}-->{{ if gt (len .Params) 2 -}}
-  <a target="_blank" rel="external nofollow noopener" href="{{ .Get 1 }}" onclick="goog_report_conversion(); trackReferralLink('{{ .Get 1 | replaceRE "^https?://|/go/([^/]+).*" "$1" }}')" {{ with .Get 2 }}title="{{ . }}"{{ end }}>{{- .Get 0 | markdownify -}}</a>
+  {{ partial "addons/analytics/external-link.html" (dict "type" "referral" "body" (.Get 0) "uri" (.Get 1) "title" (.Get 2)) }}
 {{- else -}}
-  <a target="_blank" rel="external nofollow noopener" href="{{ .Get 1 }}" onclick="goog_report_conversion(); trackReferralLink('{{ .Get 1 | replaceRE "^https?://|/go/([^/]+).*" "$1" }}')">{{- .Get 0 | markdownify -}}</a>
+  {{ partial "addons/analytics/external-link.html" (dict "type" "referral" "body" (.Get 0) "uri" (.Get 1)) }}
 {{- end }}
