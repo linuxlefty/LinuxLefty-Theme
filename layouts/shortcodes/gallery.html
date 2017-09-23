@@ -1,4 +1,25 @@
 <!--{{/*
+Add PhotoSwipe galleries with masonry to your pages and posts! To use, create a
+data file in your site's `data/media/gallery` folder with raw frontmatter like:
+
+```
+base_url = "https://static.hackcabin.com/images/optimized/screenshots/"
+
+[[slide]]
+  w = 2880
+  h = 1800
+  src = "btc-coinbase-17d.png"
+  title = "Bitcoin"
+[[slide]]
+  w = 2880
+  h = 1800
+  src = "ant-bittrex-17d.png"
+  title = "Aragon"
+```
+
+Then reference the filename of your gallery in a shortcode.
+See example usages below.
+
 Basic usage:
 {{< gallery id="slides" hidecaption="true" >}}
 */}}-->
