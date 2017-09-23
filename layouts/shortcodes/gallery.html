@@ -1,0 +1,39 @@
+<!--{{/*
+Basic usage:
+{{< gallery id="slides" hidecaption="true" >}}
+*/}}-->
+{{ if not ($.Page.Scratch.Get "hasgallery") }}
+  {{ partial "addons/gallery/pswp.html" . }}
+{{ end }}{{ $.Page.Scratch.Add "hasgallery" 1 }}
+
+{{ $gallery_id := .Get "id" }}
+{{ $hide_caption := .Get "hidecaption" | default "false" }}
+
+{{ $base_url := (index .Site.Data.media.gallery $gallery_id).base_url }}
+
+<div itemscope itemtype="http://schema.org/ImageGallery" data-masonry='{ "itemSelector": "[itemprop=\"associatedMedia\"]", "columnWidth": 150, "gutter": 5, "fitWidth": true }'>
+  {{ range $key, $slides := .Site.Data.media.gallery }}
+    {{ if eq $key $gallery_id }}
+      {{ range $slides.slide }}
+        {{ $slide_url := delimit (slice $base_url .src) "" }}
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+          <a data-size="{{.w}}x{{.h}}" href="{{ $slide_url }}" itemprop="contentUrl">
+            <img width="150" src="{{ $slide_url }}" itemprop="thumbnail" {{ with .caption }}alt="{{ . }}"{{ end }}>
+          </a>
+          {{ if and .w .h }}
+            <meta itemprop="width" content="{{ .w }}">
+            <meta itemprop="height" content="{{ .h }}">
+          {{ end }}
+          {{ if .title }}
+            <figcaption {{ if eq $hide_caption "true" }}class="visually-hidden"{{ end }}itemprop="caption description">
+              {{ .title }}
+              {{ with .author }}
+                <span itemprop="copyrightHolder">Photo: {{ . }}</span>
+              {{ end }}
+            </figcaption>
+          {{ end }}
+        </figure>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
