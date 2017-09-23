@@ -1,0 +1,5 @@
+{{ if eq .type "referral" -}}
+  <a target="_blank" rel="external nofollow noopener" href="{{ .uri }}" onclick="goog_report_conversion(); trackReferralLink('{{ .uri | replaceRE "^https?://|/go/([^/]+).*" "$1" }}')" {{ with .title }}title="{{ . }}"{{ end }}>{{- .body | markdownify -}}</a>
+{{- else if eq .type "outbound" -}}
+  <a target="_blank" rel="external noopener" href="{{ .uri }}" onclick="trackOutboundLink('{{ .uri | replaceRE "^https?://([^/]+).*" "$1" }}')" {{ with .title }}title="{{ . }}"{{ end }}>{{- .body | markdownify -}}</a>
+{{- end }}
