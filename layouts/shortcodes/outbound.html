@@ -1,7 +1,7 @@
 <!--{{/*
 Usage: {{< outbound "**BODY**" "URL" "OPTIONAL TITLE" >}}
 */}}-->{{ if gt (len .Params) 2 -}}
-  <a target="_blank" rel="external noopener" href="{{ .Get 1 }}" onclick="trackOutboundLink('{{ .Get 1 | replaceRE "^https?://([^/]+).*" "$1" }}')" {{ with .Get 2 }}title="{{ . }}"{{ end }}>{{ .Get 0 | markdownify }}</a>
+  <a target="_blank" rel="external noopener noreferrer" href="{{ .Get 1 }}" onclick="trackOutboundLink('{{ .Get 1 | replaceRE "^https?://([^/]+).*" "$1" }}')" {{ with .Get 2 }}title="{{ . }}"{{ end }}>{{ .Get 0 | markdownify }}</a>
 {{- else -}}
-  <a target="_blank" rel="external noopener" href="{{ .Get 1 }}" onclick="trackOutboundLink('{{ .Get 1 | replaceRE "^https?://([^/]+).*" "$1" }}')">{{ .Get 0 | markdownify }}</a>
+  <a target="_blank" rel="external noopener noreferrer" href="{{ .Get 1 }}" onclick="trackOutboundLink('{{ .Get 1 | replaceRE "^https?://([^/]+).*" "$1" }}')">{{ .Get 0 | markdownify }}</a>
 {{- end }}
