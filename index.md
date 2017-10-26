@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/comfusion/after-dark/master/images/minimal-mac.png" title="After Dark running on a MacBook and iPhone" alt="After Dark theme screenshots">
-</p>
-
-<p align="center">
   <a href="https://www.npmjs.com/package/after-dark"><img src="https://img.shields.io/npm/dm/after-dark.svg?style=flat-square" alt="NPM downloads per month"></a>
   <a href="https://www.npmjs.com/package/after-dark"><img src="https://img.shields.io/npm/v/after-dark.svg?style=flat-square" alt="Latest NPM version"></a>
   <a href="https://github.com/comfusion/after-dark/blob/master/COPYING"><img src="https://img.shields.io/github/license/comfusion/after-dark.svg?style=flat-square" alt="Project license"></a>
@@ -124,7 +120,7 @@
 
 ## Demo & Tutorial
 
-Head to [Hack Cabin](https://hackcabin.com) for a **production example** of which the [site architecture](https://hackcabin.com/post/initial-commit/) can be recreated using a [step-by-step guide](https://go.habd.as/zero-to-http-2). And while you're looking at examples check out [a few others](https://github.com/comfusion/after-dark/wiki) for inspiration.
+Head to [Hack Cabin](https://hackcabin.com) for a **production example** of which the [site architecture](https://hackcabin.com/post/initial-commit/) can be recreated using a [step-by-step guide](https://go.habd.as/zero-to-http-2). And while you're looking at example sites, check out [a few others](https://github.com/comfusion/after-dark/wiki) for even more inspiration.
 
 ## Getting Started
 
