@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="https://raw.githubusercontent.com/comfusion/after-dark/master/images/minimal-mac.png" title="After Dark running on a MacBook and iPhone" alt="After Dark theme screenshots">
+</p>
+
+<p align="center">
   <a href="https://www.npmjs.com/package/after-dark"><img src="https://img.shields.io/npm/dm/after-dark.svg?style=flat-square" alt="NPM downloads per month"></a>
   <a href="https://www.npmjs.com/package/after-dark"><img src="https://img.shields.io/npm/v/after-dark.svg?style=flat-square" alt="Latest NPM version"></a>
   <a href="https://github.com/comfusion/after-dark/blob/master/COPYING"><img src="https://img.shields.io/github/license/comfusion/after-dark.svg?style=flat-square" alt="Project license"></a>
@@ -64,7 +68,7 @@
       </tr>
       <tr>
         <td><a href="#content-reuse">Content Reuse</a></td>
-        <td>Sometimes plan markdown isn't enough to build engaging page content. For this reason After Dark provides a number of customizable partials and shortcodes for adding things like blockquotes, figure elements and <a target="feature" href="https://hackcss.egoist.moe/">hackcss components</a> to your posts, pages and layouts. Mix and match to create truly unique experiences.</td>
+        <td>Sometimes plan markdown isn't enough to build engaging page content. For this reason After Dark provides a number of customizable partials and shortcodes for adding things like blockquotes, figure elements, GIFs with sound and <a target="feature" href="https://hackcss.egoist.moe/">hackcss components</a> to your posts, pages and layouts. Mix and match to create truly unique experiences.</td>
       </tr>
       <tr>
         <td><a href="#related-content">Related Content</a></td>
@@ -448,6 +452,7 @@ Use it in your page or post markdown files like:
 
 Additional theme-provided shortcodes at your disposal:
 
+- `coub` - GIFs with sound. Think of it like YouTube for video loops.
 - `figure` - Similar to the Hugo built-in, but with [Intelligent Lazy Loading](#intelligent-lazy-loading), an adjusted caption title and smaller caption text.
 
 Also included are a number of shortcodes for [hackcss components](https://hackcss.egoist.moe/). These shortcodes function across After Dark [theme variants](#theme-variants) and were created as partials, enabling reuse in both your content as well as your [personalized layouts](#personalization):
