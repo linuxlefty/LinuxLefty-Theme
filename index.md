@@ -128,7 +128,7 @@ Head to [Hack Cabin](https://hackcabin.com) for a **production example** of whic
 
 ## Getting Started
 
-[Install Hugo](https://gohugo.io/#action) and, optionally, [elinks](http://elinks.or.cz/) on your machine. Instructions for installing both using [Homebrew](https://brew.sh/) on macOS:
+First [Install Hugo](https://gohugo.io/#action) and, optionally, [elinks](http://elinks.or.cz/) on your machine. Instructions for installing both using [Homebrew](https://brew.sh/) on macOS:
 
 ```shell
 brew install hugo elinks
@@ -545,7 +545,7 @@ After Dark ships with a lightweight SVG favicon embedded into every page. To cus
 
 ## License
 
-Copyright © 2016-2017 Josh Habdas <josh@habd.as>
+Copyright © 2016-2017 Josh Habdas <jhabas@pm.me> (https://habd.as)
 <br>This work is free. You can redistribute it and/or modify it under the
 <br>terms of the Do What The Fuck You Want To Public License, Version 2,
 <br>as published by Sam Hocevar. See the COPYING file for more details.
