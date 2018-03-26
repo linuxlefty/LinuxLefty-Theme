@@ -60,7 +60,7 @@
       </tr>
       <tr>
         <td><a href="#post-images">Post Images</a></td>
-        <td>Increase the visual appeal of your posts by providing a captivating image above your content. After Dark enables configuration-driven responsive post images which are lazy-loaded, responsive and automatically cropped for a consistent look-and-feel across your site.</td>
+        <td>Increase the visual appeal of your posts by providing a captivating image above your content. After Dark enables configuration-driven post images which are lazy-loaded, responsive and automatically cropped for a consistent look-and-feel across your site.</td>
       </tr>
       <tr>
         <td><a href="#personalization">Personalization</a></td>
@@ -285,6 +285,14 @@ images = [
 ]
 ```
 
+Or, if using [Page Bundle](https://gohugo.io/content-management/page-bundles/), specify the relative path to an image resource for the page:
+
+```toml
+images = [
+  "/post/post-title/images/lana-abie-581813-unsplash.jpg"
+]
+```
+
 See [Unsplash Source](https://source.unsplash.com/) for image configuration options.
 
 **Note:** While it would be possible, After Dark does not currently support relative links to images. If you would like to see this feature, please [open a new issue](https://github.com/comfusion/after-dark/issues/new).
@@ -425,7 +433,7 @@ While not considered relevant to some crawlers, keywords can be a useful way to 
 
 Bring your words to life with post images. Post images appear above post content and leverage Hugo's inbuilt [Image Processing](https://gohugo.io/content-management/image-processing/) to enable automatic cropping and image positioning.
 
-Because post images are often one of the first things users often see when visiting your site After Dark take some extra steps to load them in a performant manner. Techniques used include <abbr title="Low-Quality Image Placeholders">LQIP</abbr>, [Lazy Loading](#lazy-loading) and responsive images using the `srcset` and `sizes` attributes.
+Because post images are often one of the first things users see when visiting your site After Dark take some extra steps to load them in a performant manner. Techniques used include [Low-Quality Image Placeholders](https://www.afasterweb.com/2016/08/31/low-quality-blur-in/), [Lazy Loading](#lazy-loading) and responsive images using the `srcset` and `sizes` attributes.
 
 Using post images requires some opinion with regard to the structure of your content. To create a post with a post image you must:
 
@@ -435,17 +443,18 @@ Using post images requires some opinion with regard to the structure of your con
 An example page bundle might look like:
 
 ```
-├── secure-your-digital-life
-│   ├── images
-│   │   └── florian-klauer-119557_2000x1322.jpeg
-│   └── index.md
+└── post
+    └── secure-your-digital-life
+        ├── images
+        │   └── florian-klauer-119557-unsplash.jpg
+        └── index.md
 ```
 
 With the following front matter specified in `index.md`:
 
 ```
 [[resources]]
-  src = "images/florian-klauer-119557_2000x1322.jpeg"
+  src = "images/florian-klauer-119557-unsplash.jpg"
   name = "header"
 ```
 
