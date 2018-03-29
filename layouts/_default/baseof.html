@@ -38,8 +38,13 @@
   </head>
   {{ $theme_variant := .Site.Params.theme_variant | default "hack dark" }}
   <body class="{{ $theme_variant }} main container">
-    <header>{{ block "header" . }}{{ end }}</header>
+    <header>
+        <div class="logo"><span class="logo-linux"><span class="logo-linux-1">L</span><span class="logo-linux-2">i</span><span class="logo-linux-3">n</span><span class="logo-linux-4">u</span><span class="logo-linux-5">x</span></span><span class="logo-lefty"><span class="logo-lefty-1">L</span><span class="logo-lefty-2">e</span><span class="logo-lefty-3">f</span><span class="logo-lefty-4">t</span><span class="logo-lefty-5">y</span>
+        </span></div>
+    {{ block "header" . }}{{ end }}
+    </header>
     <main>{{ block "main" . }}{{ end }}</main>
     <footer>{{ block "footer" . }}{{ end }}</footer>
+    <div class="logo-overlay"><span class="logo-linux-1">L</span><span class="logo-lefty-1">L</span></div>
   </body>
 </html>
